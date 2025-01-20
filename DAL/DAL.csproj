@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\buisness logic layer\buisness logic layer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RandomString4Net" Version="1.9.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="9.0.1" />
+  </ItemGroup>
+
+</Project>
