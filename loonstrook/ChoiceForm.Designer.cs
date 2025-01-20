@@ -50,6 +50,7 @@
 			this.PdfButton.TabIndex = 1;
 			this.PdfButton.Text = "PDF";
 			this.PdfButton.UseVisualStyleBackColor = true;
+			this.PdfButton.Click += new System.EventHandler(this.PdfButton_Click);
 			// 
 			// EmailButton
 			// 
@@ -70,6 +71,7 @@
 			this.Controls.Add(this.EmployeeButton);
 			this.Name = "ChoiceForm";
 			this.Text = "ChoiceForm";
+			this.Load += new System.EventHandler(this.ChoiceForm_Load);
 			this.ResumeLayout(false);
 
 		}

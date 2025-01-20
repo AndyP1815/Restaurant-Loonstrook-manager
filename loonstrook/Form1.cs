@@ -36,16 +36,9 @@ namespace loonstrook
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			
-			EmployeeManager employeeManager = new EmployeeManager(new EmployeeRepository());
-
-			var mails = employeeManager.getEmails();
-
-			foreach (var mail in mails) 
-			{
-				MessageBox.Show(mail);
-			}
-
+			Restaurant restaurant = listBox1.SelectedItem as Restaurant;
+			ChoiceForm choiceForm = new ChoiceForm(restaurant);
+			choiceForm.Show();
 		}
 
 		private void createButton_Click(object sender, EventArgs e)
