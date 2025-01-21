@@ -1,6 +1,6 @@
 ﻿namespace loonstrook
 {
-	partial class Employee
+	partial class EmployeeForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -42,60 +42,69 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(41, 108);
+			this.label1.Location = new System.Drawing.Point(55, 135);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(21, 20);
+			this.label1.Size = new System.Drawing.Size(29, 25);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "id";
 			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// EmailTextBox
 			// 
-			this.EmailTextBox.Location = new System.Drawing.Point(45, 223);
+			this.EmailTextBox.Location = new System.Drawing.Point(60, 279);
+			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
 			this.EmailTextBox.Name = "EmailTextBox";
-			this.EmailTextBox.Size = new System.Drawing.Size(264, 26);
+			this.EmailTextBox.Size = new System.Drawing.Size(351, 31);
 			this.EmailTextBox.TabIndex = 1;
 			// 
 			// IdNumUpDown
 			// 
-			this.IdNumUpDown.Location = new System.Drawing.Point(45, 131);
+			this.IdNumUpDown.Location = new System.Drawing.Point(60, 164);
+			this.IdNumUpDown.Margin = new System.Windows.Forms.Padding(4);
 			this.IdNumUpDown.Name = "IdNumUpDown";
-			this.IdNumUpDown.Size = new System.Drawing.Size(264, 26);
+			this.IdNumUpDown.Size = new System.Drawing.Size(352, 31);
 			this.IdNumUpDown.TabIndex = 2;
 			this.IdNumUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
 			// 
 			// EmployeelistBox
 			// 
 			this.EmployeelistBox.FormattingEnabled = true;
-			this.EmployeelistBox.ItemHeight = 20;
-			this.EmployeelistBox.Location = new System.Drawing.Point(325, 12);
+			this.EmployeelistBox.ItemHeight = 25;
+			this.EmployeelistBox.Location = new System.Drawing.Point(433, 15);
+			this.EmployeelistBox.Margin = new System.Windows.Forms.Padding(4);
 			this.EmployeelistBox.Name = "EmployeelistBox";
-			this.EmployeelistBox.Size = new System.Drawing.Size(319, 424);
+			this.EmployeelistBox.Size = new System.Drawing.Size(424, 529);
 			this.EmployeelistBox.TabIndex = 3;
+			this.EmployeelistBox.SelectedIndexChanged += new System.EventHandler(this.EmployeelistBox_SelectedIndexChanged);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 287);
+			this.button1.Location = new System.Drawing.Point(16, 359);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(90, 49);
+			this.button1.Size = new System.Drawing.Size(120, 61);
 			this.button1.TabIndex = 4;
-			this.button1.Text = "Create";
+			this.button1.Text = "Maak";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(229, 287);
+			this.button2.Location = new System.Drawing.Point(305, 359);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(90, 49);
+			this.button2.Size = new System.Drawing.Size(120, 61);
 			this.button2.TabIndex = 5;
-			this.button2.Text = "Delete";
+			this.button2.Text = "Verwijder";
 			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(120, 287);
+			this.button3.Location = new System.Drawing.Point(160, 359);
+			this.button3.Margin = new System.Windows.Forms.Padding(4);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(90, 49);
+			this.button3.Size = new System.Drawing.Size(120, 61);
 			this.button3.TabIndex = 5;
 			this.button3.Text = "Update";
 			this.button3.UseVisualStyleBackColor = true;
@@ -103,17 +112,18 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(41, 200);
+			this.label2.Location = new System.Drawing.Point(55, 250);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(48, 20);
+			this.label2.Size = new System.Drawing.Size(65, 25);
 			this.label2.TabIndex = 6;
 			this.label2.Text = "Email";
 			// 
-			// Employee
+			// EmployeeForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(679, 450);
+			this.ClientSize = new System.Drawing.Size(905, 562);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
@@ -122,7 +132,8 @@
 			this.Controls.Add(this.IdNumUpDown);
 			this.Controls.Add(this.EmailTextBox);
 			this.Controls.Add(this.label1);
-			this.Name = "Employee";
+			this.Margin = new System.Windows.Forms.Padding(4);
+			this.Name = "EmployeeForm";
 			this.Text = "Employee";
 			((System.ComponentModel.ISupportInitialize)(this.IdNumUpDown)).EndInit();
 			this.ResumeLayout(false);

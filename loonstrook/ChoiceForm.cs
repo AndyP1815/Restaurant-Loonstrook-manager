@@ -30,5 +30,11 @@ namespace loonstrook
 			Pdf pdf = new Pdf();
 			pdf.Show();
 		}
+
+		private void EmployeeButton_Click(object sender, EventArgs e)
+		{
+			EmployeeForm employeeForm = new EmployeeForm(this.restaurant);
+			employeeForm.Show();
+		}
 	}
 }

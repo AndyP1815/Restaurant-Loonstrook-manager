@@ -51,6 +51,7 @@ public static class DatabaseHelper
 			// Create Employee Table
 			string createEmployeeTable = "CREATE TABLE IF NOT EXISTS Employee (" +
 										 "id INTEGER PRIMARY KEY, " +
+										 "employee_id Interger NOT NULL," +
 										 "email TEXT NOT NULL, " +
 										 "month INTEGER NOT NULL, " +
 										 "restaurant_id INTEGER NOT NULL, " +

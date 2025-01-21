@@ -8,7 +8,7 @@ namespace buisness_logic_layer
 	{
 		private int id;
 		private string email;
-	
+
 
 		public bool tokenConfimred{  get; set; }
 
