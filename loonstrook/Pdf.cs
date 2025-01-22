@@ -20,7 +20,7 @@ namespace loonstrook
 		public Pdf()
 		{
 			InitializeComponent();
-			string dateString = DateTime.Now.ToString("MMMM yyyy");
+			string dateString = DateTime.Now.AddMonths(-1).ToString("MMMM yyyy");
 
 			MapNameTextBox.Text = $"Loonstrook {dateString}";
 			FileNameTextBox.Text = $"Loonstrook {dateString}";
@@ -143,22 +143,15 @@ namespace loonstrook
 
 		private void MapLocationButton_Click(object sender, EventArgs e)
 		{
-			using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+			using (var folderDialog = new FolderBrowserDialog())
 			{
-				folderBrowserDialog.Description = "Select Folder";
-				folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
-				folderBrowserDialog.ShowNewFolderButton = true;
-
-				// Show the dialog and check if a folder was selected
-				if (folderBrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+				if (folderDialog.ShowDialog() == DialogResult.OK)
 				{
-					mapLocationTextBox.Text = folderBrowserDialog.SelectedPath; // Display the selected folder path
-				}
-				else
-				{
-					mapLocationTextBox.Text = "You didn't select a folder!";
+					string selectedFolderPath = folderDialog.SelectedPath;
+					mapLocationTextBox.Text = selectedFolderPath;
 				}
 			}
+		
 		}
 
 	}

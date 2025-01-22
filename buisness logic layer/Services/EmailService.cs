@@ -12,12 +12,7 @@ namespace buisness_logic_layer.Services
 {
 	public class EmailService
 	{
-		private iRestaurantRepository restaurantRepository;
-		public EmailService(iRestaurantRepository restaurantRepository) 
-		{
-			this.restaurantRepository = restaurantRepository;
-		}
-		public bool SendEmailAsync(MailDTO mailDTO, string password, Attachment attachment = null)
+		public async Task<bool> SendEmail(MailDTO mailDTO, string password, Attachment attachment = null)
 		{
 			try
 			{
@@ -35,8 +30,7 @@ namespace buisness_logic_layer.Services
 						{
 							mailMessage.Attachments.Add(attachment);
 						}
-
-						client.Send(mailMessage);
+						await client.SendMailAsync(mailMessage);
 						return true;
 					}
 				}

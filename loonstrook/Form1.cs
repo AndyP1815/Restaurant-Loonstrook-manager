@@ -92,17 +92,16 @@ namespace loonstrook
 			}
 			else 
 			{
-				
-
 				DialogResult dialogResult = MessageBox.Show("Will je zeker dit restaurant verwijderen", "Confirm", MessageBoxButtons.YesNo);
 
 				if (dialogResult == DialogResult.Yes)
 				{
 					RestaurantManager restaurantManager = new RestaurantManager(new restaurantRepository());
-
+					EmployeeManager employeeManager = new EmployeeManager(new EmployeeRepository());
 					Restaurant restaurant = listBox1.SelectedItem as Restaurant;
 
 					restaurantManager.deleteRestaurant(restaurant.getId());
+					employeeManager.deleteEmployeesByRestaurantId(restaurant.getId());
 					this.initialize();
 
 				}

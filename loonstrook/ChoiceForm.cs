@@ -18,6 +18,7 @@ namespace loonstrook
 		{
 			InitializeComponent();
 			this.restaurant = restaurant;
+		
 		}
 
 		private void ChoiceForm_Load(object sender, EventArgs e)
@@ -35,6 +36,12 @@ namespace loonstrook
 		{
 			EmployeeForm employeeForm = new EmployeeForm(this.restaurant);
 			employeeForm.Show();
+		}
+
+		private void EmailButton_Click(object sender, EventArgs e)
+		{
+			EmailForm emailForm = new EmailForm(this.restaurant);
+			emailForm.Show();
 		}
 	}
 }

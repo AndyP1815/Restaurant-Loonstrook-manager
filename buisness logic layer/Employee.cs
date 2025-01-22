@@ -21,7 +21,7 @@ namespace buisness_logic_layer
 
 		public override string ToString()
 		{
-			return $"{this.Id}-{this.Email}";
+			return $"{this.EmployeeId}-{this.Email}";
 		}
 	}
 }

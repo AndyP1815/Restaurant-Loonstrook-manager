@@ -13,7 +13,8 @@ namespace buisness_logic_layer.iRepository
 		void UpdateEmployee(EmployeeDTO employeeDTO, int OriginalId);
 		void SetNewMonth(int employeeId,int MonthNumber);
 		void DeleteEmployee(int employeeId);
-		
+		void deleteByRestaurantId(int id);
+
 	}
 }
 	

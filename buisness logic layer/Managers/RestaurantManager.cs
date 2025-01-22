@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using buisness_logic_layer.DTO;
 using buisness_logic_layer.iRepository;
 using buisness_logic_layer.Services;
@@ -24,7 +25,7 @@ namespace buisness_logic_layer.Managers
 		}
 
 
-		public void createRestaurant(string email, string password,Smtp smtp) 
+		public async Task createRestaurantAsync(string email, string password,Smtp smtp) 
 		{
 			
 				PasswordEncrypter passwordEncrypter = new PasswordEncrypter();
@@ -35,13 +36,13 @@ namespace buisness_logic_layer.Managers
 
 				RestaurantDTO restaurantDTO = new RestaurantDTO(email, encryptedPassword, token, false, smtp.Id);
 
-				EmailService emailService = new EmailService(restaurantRepository);
+				EmailService emailService = new EmailService();
 
 				var mail = new MailDTO("andypan363@gmail.com", email, $"token for {email}", token, smtp.smtpSetting);
+			
+			bool success = await emailService.SendEmail(mail, password, null);
 
-				bool send = emailService.SendEmailAsync(mail, password, null);
-
-			if (!send) 
+			if (!success) 
 			{
 				throw new Exception("Something went wrong and the mail is not send");
 			}
@@ -65,7 +66,7 @@ namespace buisness_logic_layer.Managers
 		{
 			restaurantRepository.deleteRestaurant(id);
 		}
-		public void updateRestaurant(string email, string password, Smtp smtp, int id) 
+		public async Task updateRestaurantAsync(string email, string password, Smtp smtp, int id) 
 		{
 			PasswordEncrypter passwordEncrypter = new PasswordEncrypter();
 			string usedPassword = password;
@@ -80,13 +81,13 @@ namespace buisness_logic_layer.Managers
 				password = passwordEncrypter.Decrypt(encryptedPassword);
 			}
 
-			EmailService emailService = new EmailService(restaurantRepository);
+			EmailService emailService = new EmailService();
 
 			var mail = new MailDTO(email, email, $"update restaurant confirmation", "Het restaurant moet nu geupdated zijn", smtp.smtpSetting);
 
-			bool send = emailService.SendEmailAsync(mail, password, null);
+			bool success = await emailService.SendEmail(mail, password, null);
 
-			if (!send)
+			if (!success)
 			{
 				throw new Exception("Er is iets mis gegaan en de mail is niet verzonden");
 			}
@@ -96,7 +97,10 @@ namespace buisness_logic_layer.Managers
 
 			restaurantRepository.updateRestaurant(restaurantDTO);
 
-			
+		}
+		public string getPassword(int restaurantId) 
+		{
+			return restaurantRepository.getPassword(restaurantId);
 		}
 	}
 }

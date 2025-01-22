@@ -81,7 +81,7 @@
 			this.saveButton.TabIndex = 3;
 			this.saveButton.Text = "save";
 			this.saveButton.UseVisualStyleBackColor = true;
-			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+			this.saveButton.Click += new System.EventHandler(this.saveButton_ClickAsync);
 			// 
 			// systenComboBox
 			// 

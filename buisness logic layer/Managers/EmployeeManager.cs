@@ -15,7 +15,10 @@ namespace buisness_logic_layer.Managers
 			this.employeeRepository = iEmployeeRepository;
 		}
 
-
+		public void deleteEmployeesByRestaurantId(int restaurantId) 
+		{
+			employeeRepository.deleteByRestaurantId(restaurantId);
+		}
 		public void createEmployee(int id,string email,Restaurant restaurant) 
 		{
 			int monthNumber = DateTime.Now.Month;
@@ -38,7 +41,7 @@ namespace buisness_logic_layer.Managers
 		}
 		public void setNextMonth(int employeeId) 
 		{
-			int monthNumber = DateTime.Now.Month;
+			int monthNumber = DateTime.Now.AddMonths(+1).Month;
 			employeeRepository.SetNewMonth(employeeId, monthNumber);
 		}
 	}

@@ -19,6 +19,7 @@ namespace DAL
 			connectString = $"Data Source={dbFilePath};Version=3;";
 		}
 
+		
 		public void CreateEmployee(EmployeeDTO employeeDTO)
 		{
 			using (var connection = new SQLiteConnection(connectString))
@@ -50,6 +51,21 @@ namespace DAL
 				using (var command = new SQLiteCommand(deleteEmployee, connection))
 				{
 					command.Parameters.AddWithValue("@id", employeeId);
+					command.ExecuteNonQuery();
+				}
+			}
+		}
+		public void deleteByRestaurantId(int restaurantId)
+		{
+			using (var connection = new SQLiteConnection(connectString))
+			{
+				connection.Open();
+
+				string deleteEmployee = "DELETE FROM Employee WHERE restaurant_id = @id";
+
+				using (var command = new SQLiteCommand(deleteEmployee, connection))
+				{
+					command.Parameters.AddWithValue("@id", restaurantId);
 					command.ExecuteNonQuery();
 				}
 			}
@@ -110,21 +126,14 @@ namespace DAL
 				connection.Open();
 
 				// Base query
-				string updateRestaurant = @"
-		UPDATE Employee 
-		SET 
-			email = @Email, 
-			employee_id = @Id, 
-		WHERE 
-			id = @OringinalId";
+				string updateEmployee = @"UPDATE Employee SET email = @Email, employee_id = @Id WHERE id = @OriginalId";
 
-				using (var command = new SQLiteCommand(updateRestaurant, connection))
+				using (var command = new SQLiteCommand(updateEmployee, connection))
 				{
 					command.Parameters.AddWithValue("@Email", employeeDTO.Email);
 					command.Parameters.AddWithValue("@Id", employeeDTO.Id);
 					command.Parameters.AddWithValue("@OriginalId", OriginalId);
 
-		
 					command.ExecuteNonQuery();
 				}
 			}

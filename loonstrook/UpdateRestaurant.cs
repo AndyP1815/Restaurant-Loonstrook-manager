@@ -60,7 +60,7 @@ namespace loonstrook
 
 					try
 					{
-						restaurantManager.updateRestaurant(email, password, smtp,restaurant.getId());
+						restaurantManager.updateRestaurantAsync(email, password, smtp,restaurant.getId());
 					}
 					catch (Exception ex)
 					{

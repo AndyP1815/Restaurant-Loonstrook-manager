@@ -36,7 +36,7 @@ namespace loonstrook
 
 		}
 
-		private void saveButton_Click(object sender, EventArgs e)
+		private async void saveButton_ClickAsync(object sender, EventArgs e)
 		{
 			string password = passwordTextBox.Text;
 			string email = emailTextBox.Text;
@@ -57,7 +57,7 @@ namespace loonstrook
 					Smtp smtp =  systenComboBox.SelectedItem as Smtp;
 
 					try { 
-					restaurantManager.createRestaurant(email, password, smtp);
+					 await restaurantManager.createRestaurantAsync(email, password, smtp);
 						}
 					catch (Exception ex)
 					{
